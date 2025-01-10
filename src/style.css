@@ -1,0 +1,254 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(
+        135deg, 
+        #f6d365 0%, 
+        #fda085 50%, 
+        #f5f7fa 100%
+    );
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6;
+}
+
+/* Container Styles */
+.home {
+    width: 95%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.1),
+        0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+   
+}
+
+/* Motivational Header */
+.motivational-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.motivational-header h1 {
+    color: #4a4a4a;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(
+        45deg, 
+        #ff6b6b, 
+        #4ecdc4
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.quote {
+    color: #6a11cb;
+    font-style: italic;
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+.app {
+    color: #0c0117;
+    font-style: normal; /* Removed italic */
+    font-weight: bold; /* Made the text bold */
+    font-size: 1.1rem; /* Slightly increased font size */
+    opacity: 0.8; /* Adjusted opacity for better visibility */
+    margin-top: 10px;
+    font-family: 'Poppins', Arial, sans-serif; /* Updated font-family */
+  }
+  
+/* Task Form Styles */
+.task-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.task-input {
+    flex-grow: 1;
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.task-input:focus {
+    outline: none;
+    border-color: #4a4a4a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-task-button {
+    background: linear-gradient(
+        to right, 
+        #ff6b6b, 
+        #4ecdc4
+    );
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.add-task-button:hover {
+    transform: scale(1.05);
+}
+
+/* Task Sections */
+.task-sections {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.task-section {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Motivational Column Backgrounds */
+.task-section[data-category="todo"] {
+    border-left: 5px solid #ff6b6b;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.9), 
+        rgba(255, 255, 255, 0.9)
+    ), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><text x="50%" y="50%" text-anchor="middle" fill="rgba(0,0,0,0.05)" font-size="20" font-family="Arial">Start Your Journey</text></svg>');
+}
+
+.task-section[data-category="todo"]::before {
+    content: "🚀 Your Adventure Begins";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #6a11cb;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.task-section[data-category="ongoing"] {
+    border-left: 5px solid #4ecdc4;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.9), 
+        rgba(255, 255, 255, 0.9)
+    ), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><text x="50%" y="50%" text-anchor="middle" fill="rgba(0,0,0,0.05)" font-size="20" font-family="Arial">Keep Going</text></svg>');
+}
+
+.task-section[data-category="ongoing"]::before {
+    content: "🔥 Progress in Motion";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #4ecdc4;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.task-section[data-category="completed"] {
+    border-left: 5px solid #45b7d1;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.9), 
+        rgba(255, 255, 255, 0.9)
+    ), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><text x="50%" y="50%" text-anchor="middle" fill="rgba(0,0,0,0.05)" font-size="20" font-family="Arial">Celebrate Success</text></svg>');
+}
+
+.task-section[data-category="completed"]::before {
+    content: "✨ Mission Accomplished";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #4574d1;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* Additional styles remain the same as in the previous full CSS */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Rest of the CSS remains exactly the same */
+
+/* Dropdown Styles - Modified */
+.task-item {
+    position: relative;
+    margin-bottom: 10px;
+    z-index: 1; /* Ensure proper stacking context */
+}
+  
+.task-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+  
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    z-index: 20;
+}
+ 
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000; /* Extremely high z-index */
+    min-width: 150px;
+    overflow: visible; /* Allow content to overflow */
+}
+  
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+  
+.dropdown-menu button:hover {
+    background-color: #f0f0f0;
+}
+  
+.delete-btn {
+    color: #ff6b6b;
+}
+  
+.delete-btn:hover {
+    background-color: #ff6b6b;
+    color: white;
+}
